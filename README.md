@@ -68,9 +68,9 @@ We compared the numerical solution against the exact solution at $t=0.5$ (using 
 
 | Position ($x$) | Numerical $u(x,t)$ | Exact $u(x,t)$ | Absolute Error |
 |:---:|:---:|:---:|:---:|
-| 0.25 | 0.6724 | 0.6721 | 0.0003 |
-| 0.50 | 0.9510 | 0.9506 | 0.0004 |
-| 0.75 | 0.6724 | 0.6721 | 0.0003 |
+| 0.24 | 0.6630 | 0.6622 | 0.0008 |
+| 0.51 | 0.9525 | 0.9514 | 0.0012 |
+| 0.76 | 0.6630 | 0.6622 | 0.0008 |
 
 ### Graphical Results
 We tested the solver with two different time steps to demonstrate the stability limit.
