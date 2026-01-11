@@ -20,7 +20,21 @@ class HeatEquationFTCS:
 # This is  FOR THE 2ND PERSON IN LIST TO PASTE INTO 
 
 # This is  FOR THE 3RD PERSON IN LIST TO PASTE INTO 
+def solve(self, r):
+        """
+        Solves using FTCS scheme: u_new = u + r * (u_i+1 - 2u_i + u_i-1)
+        """
+        # Calculate dt based on stability parameter r
+        dt = r * (self.dx ** 2) / self.alpha
+        nt = int(self.T / dt)
 
+        u_curr = self.u.copy()
+        history = [u_curr.copy()]  # Store for heatmap
+
+        for n in range(nt):
+            u_next = u_curr.copy()
+            # Vectorized FTCS update (exclude boundaries)
+            u_next[1:-1] = u_curr[1:-1] + r * (u_curr[2:] - 2 * u_curr[1:-1] + u_curr[:-2])
 
 
 # This is  FOR THE 3RD PERSON IN LIST TO PASTE INTO 
