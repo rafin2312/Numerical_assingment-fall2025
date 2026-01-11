@@ -52,7 +52,15 @@ def solve(self, r):
 # This is  FOR THE 5TH PERSON IN LIST TO PASTE INTO 
 
 # This is  FOR THE 6TH PERSON IN LIST TO PASTE INTO 
+# 2. Run STABLE Case (r = 0.45)
+solver_stable = HeatEquationFTCS(L, T, nx, alpha)
+solver_stable.set_initial_conditions()
+x, u_stable_final, history_stable, nt_s, dt_s = solver_stable.solve(r=0.45)
 
+# 3. Run UNSTABLE Case (r = 0.51)
+solver_unstable = HeatEquationFTCS(L, T, nx, alpha)
+solver_unstable.set_initial_conditions()
+_, u_unstable_final, _, nt_u, dt_u = solver_unstable.solve(r=0.51)
 
 
 # This is  FOR THE 6TH PERSON IN LIST TO PASTE INTO 
