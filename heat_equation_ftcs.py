@@ -14,3 +14,7 @@ class HeatEquationFTCS:
         self.x = np.linspace(0, L, nx)
         self.u = np.zeros(nx)
 # This is  FOR THE 2ND PERSON IN LIST TO PASTE INTO 
+
+
+
+# This is  FOR THE 2ND PERSON IN LIST TO PASTE INTO 
