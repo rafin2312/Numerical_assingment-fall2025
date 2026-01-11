@@ -44,6 +44,16 @@ class HeatEquationFTCS:
 # This is  FOR THE 6TH PERSON IN LIST TO PASTE INTO 
 
 # This is  FOR THE 7TH PERSON IN LIST TO PASTE INTO 
+# --- ACCURACY CHECK (MATCHING LATEX/README EXACTLY) ---
+print("\n--- Accuracy Analysis (at t=0.5, r=0.45) ---")
+u_exact = solver_stable.get_exact_solution(T)
+
+# These specific indices correspond to x approx 0.24, 0.51, 0.76
+indices = [12, 25, 37]
+
+# Print Table Header
+print(f"{'Position (x)':<15} {'Numerical':<15} {'Exact':<15} {'Error':<15}")
+print("-" * 60)
 
 
 
