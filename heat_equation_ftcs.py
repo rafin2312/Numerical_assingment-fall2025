@@ -18,3 +18,56 @@ class HeatEquationFTCS:
 
 
 # This is  FOR THE 2ND PERSON IN LIST TO PASTE INTO 
+
+# This is  FOR THE 3RD PERSON IN LIST TO PASTE INTO 
+
+
+
+# This is  FOR THE 3RD PERSON IN LIST TO PASTE INTO 
+
+# This is  FOR THE 4TH PERSON IN LIST TO PASTE INTO 
+
+
+
+# This is  FOR THE 4TH PERSON IN LIST TO PASTE INTO 
+
+# This is  FOR THE 5TH PERSON IN LIST TO PASTE INTO 
+
+
+
+# This is  FOR THE 5TH PERSON IN LIST TO PASTE INTO 
+
+# This is  FOR THE 6TH PERSON IN LIST TO PASTE INTO 
+
+
+
+# This is  FOR THE 6TH PERSON IN LIST TO PASTE INTO 
+
+# This is  FOR THE 7TH PERSON IN LIST TO PASTE INTO 
+
+
+
+# This is  FOR THE 7TH PERSON IN LIST TO PASTE INTO 
+
+
+# This is  FOR THE 8TH PERSON IN LIST TO PASTE INTO 
+for i in indices:
+    pos = x[i]
+    num_val = u_stable_final[i]
+    ex_val = u_exact[i]
+    err = abs(num_val - ex_val)
+    # Formatting to 4 decimal places to match your report
+    print(f"{pos:<15.2f} {num_val:<15.4f} {ex_val:<15.4f} {err:<15.4f}")
+# This is  FOR THE 8TH PERSON IN LIST TO PASTE INTO 
+
+# This is  FOR THE 9TH PERSON IN LIST TO PASTE INTO 
+
+
+
+# This is  FOR THE 9TH PERSON IN LIST TO PASTE INTO 
+
+# This is  FOR THE 10TH PERSON IN LIST TO PASTE INTO 
+
+
+
+# This is  FOR THE 10TH PERSON IN LIST TO PASTE INTO 
