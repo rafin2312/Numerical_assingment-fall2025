@@ -46,7 +46,15 @@ def solve(self, r):
 # This is  FOR THE 4TH PERSON IN LIST TO PASTE INTO 
 
 # This is  FOR THE 5TH PERSON IN LIST TO PASTE INTO 
+# --- MAIN EXECUTION ---
 
+# 1. Setup Parameters
+L = 1.0
+alpha = 0.01
+nx = 50
+T = 0.5
+
+print(f"--- Simulation Started ---")
 
 
 # This is  FOR THE 5TH PERSON IN LIST TO PASTE INTO 
