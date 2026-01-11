@@ -45,6 +45,16 @@ def solve(self, r):
 
 # This is  FOR THE 4TH PERSON IN LIST TO PASTE INTO 
 
+Boundary Conditions: u(0,t) = u(L,t) = 0
+            u_next[0] = 0
+            u_next[-1] = 0
+
+            u_curr = u_next
+            history.append(u_curr.copy())
+
+        return self.x, u_curr, np.array(history), nt, dt
+
+
 # This is  FOR THE 5TH PERSON IN LIST TO PASTE INTO 
 # --- MAIN EXECUTION ---
 
