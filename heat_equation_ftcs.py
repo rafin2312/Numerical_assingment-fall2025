@@ -101,6 +101,17 @@ for i in indices:
 # This is  FOR THE 8TH PERSON IN LIST TO PASTE INTO 
 
 # This is  FOR THE 9TH PERSON IN LIST TO PASTE INTO 
+# Plot 1: Comparison
+plt.figure(figsize=(12, 5))
+plt.subplot(1, 2, 1)
+steps_to_show = [0, nt_s // 5, nt_s // 2, nt_s]
+for n in steps_to_show:
+    plt.plot(x, history_stable[n], label=f't={n * dt_s:.3f}', linewidth=1.5)
+plt.title(f'Stable Diffusion (r=0.45)')
+plt.xlabel('Position (x)')
+plt.ylabel('Temperature (u)')
+plt.legend()
+plt.grid(True, alpha=0.3)
 
 
 
