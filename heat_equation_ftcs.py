@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
 class HeatEquationFTCS:
     def __init__(self, L=1.0, T=0.5, nx=50, alpha=0.01):
         """
