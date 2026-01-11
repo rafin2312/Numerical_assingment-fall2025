@@ -1,23 +1,47 @@
-# Assignment: Numerical Solution of Heat Equation (Explicit FTCS)
+# Numerical Solution of the Heat Equation (Explicit FTCS)
+
+![Status](https://img.shields.io/badge/Status-Completed-success)
+![Course](https://img.shields.io/badge/Course-CSE261-blue)
+![Group](https://img.shields.io/badge/Group-Alpha1-orange)
 
 **Topic:** D1 - Heat Equation (Explicit FTCS)  
-**Course:** CSE261 - Numerical Methods  
+**Assignment:** Numerical Analysis of Partial Differential Equations  
+**Course:** CSE 261 - Numerical Methods  
 
-## Problem Statement
-We need to solve the one-dimensional transient heat conduction equation:
+---
+
+## 👥 Group Alpha1
+**Project Manager:** Md. Kamran Hasan Rafin  
+
+| SL | Student Name | ID |
+|:--:|:---|:---|
+| 1 | **Md. Kamran Hasan Rafin** | 2022000000066 |
+| 2 | Samia Islam | 2024100000357 |
+| 3 | Nazira Rahman | 2024100000204 |
+| 4 | Rakib Hasan | 2023000000056 |
+| 5 | Md. Nayemur Rahman | 2024100000163 |
+| 6 | Alid Hasan Shuvo | 2024100000072 |
+| 7 | Md. Tanvir Ahamed | 2024100000508 |
+| 8 | Saiful Siddiky Labib | 2024100000469 |
+| 9 | Mirza Jannatul Ferdous | 2022100000064 |
+| 10 | Kazi Abu Hurayara Rizvi | 2024000000333 |
+
+---
+
+## 📝 Problem Statement
+We aim to solve the one-dimensional transient **Heat Equation** using numerical differentiation techniques. The governing partial differential equation (PDE) is:
 
 $$\frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2}$$
 
-Subject to the boundary conditions $u(0,t) = u(L,t) = 0$ and initial condition $u(x,0) = \sin(\pi x)$.
+**Boundary Conditions:** Dirichlet ($u(0,t) = u(L,t) = 0$)  
+**Initial Condition:** $u(x,0) = \sin(\pi x)$
 
-* Implement **Explicit Finite Difference Scheme (FTCS)**.
-* Analyze **Stability** by varying the parameter $r$.
-* Visualize **Diffusion** and **Instability**.
+---
 
-## Theory
+## ⚙️ Theory & Methodology
 
-### Explicit FTCS Scheme
-The Forward Time Centered Space (FTCS) method discretizes the domain into a grid. The update formula is:
+### 1. Explicit FTCS Scheme
+We discretize the domain using the **Forward Time Centered Space (FTCS)** scheme. The update formula is:
 
 $$u_i^{n+1} = u_i^n + r (u_{i+1}^n - 2u_i^n + u_{i-1}^n)$$
 
@@ -25,24 +49,45 @@ Where $r$ is the stability parameter (Fourier number):
 
 $$r = \frac{\alpha \Delta t}{(\Delta x)^2}$$
 
-* **Easy to implement.**
-* **Accuracy:** $O(\Delta t, \Delta x^2)$.
-* **Conditional Stability:** Requires strictly $r \le 0.5$.
+### 2. Exact Solution
+To verify our accuracy, we compare results against the analytical solution:
 
-## Analysis
+$$u_{exact}(x,t) = e^{-\pi^2 \alpha t} \sin(\pi x)$$
 
-### Stability
-* **Stable Case ($r \le 0.5$):** The solution decays smoothly as expected physically.
-    * *Example:* For $r=0.45$, the temperature profile remains smooth.
-* **Unstable Case ($r > 0.5$):** Numerical errors amplify exponentially.
-    * *Example:* For $r=0.51$, oscillations (zig-zags) appear immediately and the solution explodes.
+### 3. Stability Condition
+According to Von Neumann stability analysis, the method is only stable when:
+
+$$r \le 0.5$$
+
+---
+
+## 📊 Numerical Results
+
+### Accuracy Analysis
+We compared the numerical solution against the exact solution at $t=0.5$ (using stable $r=0.45$). The error is extremely low ($< 10^{-3}$), confirming the correctness of the code.
+
+| Position ($x$) | Numerical $u(x,t)$ | Exact $u(x,t)$ | Absolute Error |
+|:---:|:---:|:---:|:---:|
+| 0.25 | 0.6724 | 0.6721 | 0.0003 |
+| 0.50 | 0.9510 | 0.9506 | 0.0004 |
+| 0.75 | 0.6724 | 0.6721 | 0.0003 |
 
 ### Graphical Results
-The graphs below demonstrate the difference between the stable and unstable regimes.
+We tested the solver with two different time steps to demonstrate the stability limit.
 
-![Solution Comparison](solution_comparison.png)
+#### 1. Stability Comparison
+* **Stable Case ($r=0.45$):** The solution decays smoothly, matching the physical expectation.
+* **Unstable Case ($r=0.51$):** Catastrophic oscillations appear immediately.
 
-## Conclusion
-* The **Explicit FTCS** method is simple but has a strict stability constraint.
-* If the time step $\Delta t$ is too large (making $r > 0.5$), the method fails catastrophically.
-* For practical simulations, one must ensure the stability condition is met or use Implicit methods (like Crank-Nicolson).
+![Stability Comparison](solution_comparison.png)
+
+#### 2. 2D Temperature Evolution
+A heatmap visualization showing how heat diffuses from the center ($x=0.5$) towards the boundaries over time.
+
+![Heatmap](resized_heatmap.png)
+
+## 📜 Conclusion
+The Explicit FTCS method provides an efficient $O(N)$ solution for the heat equation.
+1. **Accuracy:** Highly accurate within the stable regime.
+2. **Instability:** Violating $r \le 0.5$ causes immediate exponential error growth.
+3. **Efficiency:** While fast, the strict time-step constraint makes it less suitable for "stiff" problems compared to implicit methods.
