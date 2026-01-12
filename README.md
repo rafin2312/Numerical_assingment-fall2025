@@ -10,8 +10,7 @@
 
 ---
 
-## 👥 Group Alpha1
-**Project Manager:** Md. Kamran Hasan Rafin  
+## 👥 Group Alpha1  
 
 | SL | Student Name | ID |
 |:--:|:---|:---|
