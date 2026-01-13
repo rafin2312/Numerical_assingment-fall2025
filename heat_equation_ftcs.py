@@ -135,7 +135,39 @@ plt.grid(True, alpha=0.3)
 # This is  FOR THE 9TH PERSON IN LIST TO PASTE INTO 
 
 # This is  FOR THE 10TH PERSON IN LIST TO PASTE INTO 
+plt.subplot(1, 2, 2)
+# Simulate instability visually
+u_temp = np.sin(np.pi * x)
+for n in range(60):  # Run enough steps to show explosion
+    if n % 20 == 0:
+        plt.plot(x, u_temp, label=f'Step {n}')
+    u_new = u_temp.copy()
+    u_new[1:-1] = u_temp[1:-1] + 0.51 * (u_temp[2:] - 2 * u_temp[1:-1] + u_temp[:-2])
+    u_new[0] = 0;
+    u_new[-1] = 0
+    u_temp = u_new
 
+plt.title(f'Instability (r=0.51)')
+plt.xlabel('Position (x)')
+plt.ylim(-2, 2)
+plt.grid(True, alpha=0.3)
+plt.legend()
+
+plt.tight_layout()
+plt.savefig('solution_comparison.png', dpi=300)
+print("\nGenerated: solution_comparison.png")
+
+# Plot 2: Heatmap
+plt.figure(figsize=(8, 6))
+plt.imshow(history_stable, aspect='auto', extent=[0, L, T, 0], cmap='hot')
+cb = plt.colorbar()
+cb.set_label('Temperature (u)')
+plt.title('2D Temperature Evolution (Stable Case)')
+plt.xlabel('Position (x)')
+plt.ylabel('Time (t)')
+plt.tight_layout()
+plt.savefig('resized_heatmap.png', dpi=300)
+print("Generated: resized_heatmap.png")
 
 
 # This is  FOR THE 10TH PERSON IN LIST TO PASTE INTO 
