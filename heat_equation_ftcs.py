@@ -23,10 +23,6 @@ def set_initial_conditions(self):
         decay = np.exp(-np.pi ** 2 * self.alpha * t)
         return decay * np.sin(np.pi * self.x)
 
-
-# This is  FOR THE 2ND PERSON IN LIST TO PASTE INTO 
-
-# This is  FOR THE 3RD PERSON IN LIST TO PASTE INTO 
 def solve(self, r):
         """
         Solves using FTCS scheme: u_new = u + r * (u_i+1 - 2u_i + u_i-1)
@@ -43,15 +39,6 @@ def solve(self, r):
             # Vectorized FTCS update (exclude boundaries)
             u_next[1:-1] = u_curr[1:-1] + r * (u_curr[2:] - 2 * u_curr[1:-1] + u_curr[:-2])
 
-
-# This is  FOR THE 3RD PERSON IN LIST TO PASTE INTO 
-
-# This is  FOR THE 4TH PERSON IN LIST TO PASTE INTO 
-
-
-
-# This is  FOR THE 4TH PERSON IN LIST TO PASTE INTO 
-
 Boundary Conditions: u(0,t) = u(L,t) = 0
             u_next[0] = 0
             u_next[-1] = 0
@@ -61,8 +48,6 @@ Boundary Conditions: u(0,t) = u(L,t) = 0
 
         return self.x, u_curr, np.array(history), nt, dt
 
-
-# This is  FOR THE 5TH PERSON IN LIST TO PASTE INTO 
 # --- MAIN EXECUTION ---
 
 # 1. Setup Parameters
@@ -73,10 +58,6 @@ T = 0.5
 
 print(f"--- Simulation Started ---")
 
-
-# This is  FOR THE 5TH PERSON IN LIST TO PASTE INTO 
-
-# This is  FOR THE 6TH PERSON IN LIST TO PASTE INTO 
 # 2. Run STABLE Case (r = 0.45)
 solver_stable = HeatEquationFTCS(L, T, nx, alpha)
 solver_stable.set_initial_conditions()
@@ -87,10 +68,6 @@ solver_unstable = HeatEquationFTCS(L, T, nx, alpha)
 solver_unstable.set_initial_conditions()
 _, u_unstable_final, _, nt_u, dt_u = solver_unstable.solve(r=0.51)
 
-
-# This is  FOR THE 6TH PERSON IN LIST TO PASTE INTO 
-
-# This is  FOR THE 7TH PERSON IN LIST TO PASTE INTO 
 # --- ACCURACY CHECK (MATCHING LATEX/README EXACTLY) ---
 print("\n--- Accuracy Analysis (at t=0.5, r=0.45) ---")
 u_exact = solver_stable.get_exact_solution(T)
@@ -102,12 +79,6 @@ indices = [12, 25, 37]
 print(f"{'Position (x)':<15} {'Numerical':<15} {'Exact':<15} {'Error':<15}")
 print("-" * 60)
 
-
-
-# This is  FOR THE 7TH PERSON IN LIST TO PASTE INTO 
-
-
-# This is  FOR THE 8TH PERSON IN LIST TO PASTE INTO 
 for i in indices:
     pos = x[i]
     num_val = u_stable_final[i]
@@ -115,9 +86,6 @@ for i in indices:
     err = abs(num_val - ex_val)
     # Formatting to 4 decimal places to match your report
     print(f"{pos:<15.2f} {num_val:<15.4f} {ex_val:<15.4f} {err:<15.4f}")
-# This is  FOR THE 8TH PERSON IN LIST TO PASTE INTO 
-
-# This is  FOR THE 9TH PERSON IN LIST TO PASTE INTO 
 # Plot 1: Comparison
 plt.figure(figsize=(12, 5))
 plt.subplot(1, 2, 1)
@@ -130,11 +98,6 @@ plt.ylabel('Temperature (u)')
 plt.legend()
 plt.grid(True, alpha=0.3)
 
-
-
-# This is  FOR THE 9TH PERSON IN LIST TO PASTE INTO 
-
-# This is  FOR THE 10TH PERSON IN LIST TO PASTE INTO 
 plt.subplot(1, 2, 2)
 # Simulate instability visually
 u_temp = np.sin(np.pi * x)
@@ -168,6 +131,3 @@ plt.ylabel('Time (t)')
 plt.tight_layout()
 plt.savefig('resized_heatmap.png', dpi=300)
 print("Generated: resized_heatmap.png")
-
-
-# This is  FOR THE 10TH PERSON IN LIST TO PASTE INTO 
