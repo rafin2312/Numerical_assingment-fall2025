@@ -10,7 +10,7 @@
 
 ---
 
-## 👥 Group Alpha1  
+## 👥 Group Draco
 
 | SL | Student Name | ID |
 |:--:|:---|:---|
