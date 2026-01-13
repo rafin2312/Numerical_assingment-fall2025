@@ -2,7 +2,7 @@
 
 ![Status](https://img.shields.io/badge/Status-Completed-success)
 ![Course](https://img.shields.io/badge/Course-CSE261-blue)
-![Group](https://img.shields.io/badge/Group-Alpha1-orange)
+![Group](https://img.shields.io/badge/Group-Draco-orange)
 
 **Topic:** D1 - Heat Equation (Explicit FTCS)  
 **Assignment:** Numerical Analysis of Partial Differential Equations  
