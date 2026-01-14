@@ -85,8 +85,35 @@ A heatmap visualization showing how heat diffuses from the center ($x=0.5$) towa
 
 ![Heatmap](resized_heatmap.png)
 
-## 📜 Conclusion
-The Explicit FTCS method provides an efficient $O(N)$ solution for the heat equation.
-1. **Accuracy:** Highly accurate within the stable regime.
-2. **Instability:** Violating $r \le 0.5$ causes immediate exponential error growth.
-3. **Efficiency:** While fast, the strict time-step constraint makes it less suitable for "stiff" problems compared to implicit methods.
+##Conclusion
+
+1.Efficiency:
+The Explicit FTCS method is fast and has a time complexity of 
+𝑂
+(
+𝑁
+)
+O(N), making it easy to implement and suitable for simple heat equation problems.
+
+2.Accuracy:
+The method gives accurate results as long as the stability condition is satisfied. When 
+𝑟
+≤
+0.5
+r≤0.5, the temperature distribution behaves as expected.
+
+3.Stability:
+The main limitation of the FTCS method is its stability requirement. If 
+𝑟
+>
+0.5
+r>0.5, the solution becomes unstable and errors grow rapidly.
+
+4.Time Step Limitation:
+Very small time steps are often needed to keep the solution stable, which increases the number of computations.
+
+5.Suitability:
+Because of the strict stability condition, the FTCS method is not ideal for stiff problems. Implicit methods are usually better in such cases.
+
+6.Overall:
+The Explicit FTCS method is best suited for simple problems where stability can be controlled and computational cost is not a major issue.
