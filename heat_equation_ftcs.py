@@ -112,7 +112,7 @@ for n in range(60):  # Run enough steps to show explosion
         plt.plot(x, u_temp, label=f'Step {n}')
     u_new = u_temp.copy()
     u_new[1:-1] = u_temp[1:-1] + 0.51 * (u_temp[2:] - 2 * u_temp[1:-1] + u_temp[:-2])
-    u_new[0] = 0;
+    u_new[0] = 0
     u_new[-1] = 0
     u_temp = u_new
 
