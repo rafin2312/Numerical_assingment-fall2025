@@ -2,10 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 class HeatEquationFTCS:
     def __init__(self, L=1.0, T=0.5, nx=50, alpha=0.01):
-        """
-        Initializes the solver.
-        Parameters match the Group Alpha1 Report exactly.
-        """
         self.L = L
         self.T = T
         self.nx = nx
@@ -36,7 +32,9 @@ def solve(self, r):
 
         for n in range(nt):
             u_next = u_curr.copy()
+            
             # Vectorized FTCS update (exclude boundaries)
+            
             u_next[1:-1] = u_curr[1:-1] + r * (u_curr[2:] - 2 * u_curr[1:-1] + u_curr[:-2])
 
 Boundary Conditions: u(0,t) = u(L,t) = 0
@@ -51,6 +49,7 @@ Boundary Conditions: u(0,t) = u(L,t) = 0
 # --- MAIN EXECUTION ---
 
 # 1. Setup Parameters
+
 L = 1.0
 alpha = 0.01
 nx = 50
@@ -59,16 +58,19 @@ T = 0.5
 print(f"--- Simulation Started ---")
 
 # 2. Run STABLE Case (r = 0.45)
+
 solver_stable = HeatEquationFTCS(L, T, nx, alpha)
 solver_stable.set_initial_conditions()
 x, u_stable_final, history_stable, nt_s, dt_s = solver_stable.solve(r=0.45)
 
 # 3. Run UNSTABLE Case (r = 0.51)
+
 solver_unstable = HeatEquationFTCS(L, T, nx, alpha)
 solver_unstable.set_initial_conditions()
 _, u_unstable_final, _, nt_u, dt_u = solver_unstable.solve(r=0.51)
 
 # --- ACCURACY CHECK (MATCHING LATEX/README EXACTLY) ---
+
 print("\n--- Accuracy Analysis (at t=0.5, r=0.45) ---")
 u_exact = solver_stable.get_exact_solution(T)
 
@@ -76,6 +78,7 @@ u_exact = solver_stable.get_exact_solution(T)
 indices = [12, 25, 37]
 
 # Print Table Header
+
 print(f"{'Position (x)':<15} {'Numerical':<15} {'Exact':<15} {'Error':<15}")
 print("-" * 60)
 
@@ -86,7 +89,9 @@ for i in indices:
     err = abs(num_val - ex_val)
     # Formatting to 4 decimal places to match your report
     print(f"{pos:<15.2f} {num_val:<15.4f} {ex_val:<15.4f} {err:<15.4f}")
+    
 # Plot 1: Comparison
+
 plt.figure(figsize=(12, 5))
 plt.subplot(1, 2, 1)
 steps_to_show = [0, nt_s // 5, nt_s // 2, nt_s]
@@ -99,6 +104,7 @@ plt.legend()
 plt.grid(True, alpha=0.3)
 
 plt.subplot(1, 2, 2)
+
 # Simulate instability visually
 u_temp = np.sin(np.pi * x)
 for n in range(60):  # Run enough steps to show explosion
@@ -121,6 +127,7 @@ plt.savefig('solution_comparison.png', dpi=300)
 print("\nGenerated: solution_comparison.png")
 
 # Plot 2: Heatmap
+
 plt.figure(figsize=(8, 6))
 plt.imshow(history_stable, aspect='auto', extent=[0, L, T, 0], cmap='hot')
 cb = plt.colorbar()
