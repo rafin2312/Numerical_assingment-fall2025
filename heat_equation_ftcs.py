@@ -10,16 +10,16 @@ class HeatEquationFTCS:
         self.x = np.linspace(0, L, nx)
         self.u = np.zeros(nx)
 
-def set_initial_conditions(self):
+    def set_initial_conditions(self):
         """Sets Initial Condition: u(x,0) = sin(pi * x)"""
         self.u = np.sin(np.pi * self.x)
 
-def get_exact_solution(self, t):
+    def get_exact_solution(self, t):
         """Calculates exact solution: u = e^(-pi^2 * alpha * t) * sin(pi * x)"""
         decay = np.exp(-np.pi ** 2 * self.alpha * t)
         return decay * np.sin(np.pi * self.x)
 
-def solve(self, r):
+    def solve(self, r):
         """
         Solves using FTCS scheme: u_new = u + r * (u_i+1 - 2u_i + u_i-1)
         """
