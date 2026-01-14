@@ -13,7 +13,7 @@ class HeatEquationFTCS:
         self.alpha = alpha
         self.x = np.linspace(0, L, nx)
         self.u = np.zeros(nx)
-# This is  FOR THE 2ND PERSON IN LIST TO PASTE INTO 
+
 def set_initial_conditions(self):
         """Sets Initial Condition: u(x,0) = sin(pi * x)"""
         self.u = np.sin(np.pi * self.x)
