@@ -14,7 +14,7 @@ def set_initial_conditions(self):
         """Sets Initial Condition: u(x,0) = sin(pi * x)"""
         self.u = np.sin(np.pi * self.x)
 
-    def get_exact_solution(self, t):
+def get_exact_solution(self, t):
         """Calculates exact solution: u = e^(-pi^2 * alpha * t) * sin(pi * x)"""
         decay = np.exp(-np.pi ** 2 * self.alpha * t)
         return decay * np.sin(np.pi * self.x)
@@ -37,7 +37,7 @@ def solve(self, r):
             
             u_next[1:-1] = u_curr[1:-1] + r * (u_curr[2:] - 2 * u_curr[1:-1] + u_curr[:-2])
 
-Boundary Conditions: u(0,t) = u(L,t) = 0
+#Boundary Conditions: u(0,t) = u(L,t) = 0
             u_next[0] = 0
             u_next[-1] = 0
 
@@ -138,3 +138,4 @@ plt.ylabel('Time (t)')
 plt.tight_layout()
 plt.savefig('resized_heatmap.png', dpi=300)
 print("Generated: resized_heatmap.png")
+plt.show()
