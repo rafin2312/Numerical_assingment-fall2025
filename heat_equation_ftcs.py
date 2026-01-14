@@ -37,7 +37,7 @@ class HeatEquationFTCS:
             
             u_next[1:-1] = u_curr[1:-1] + r * (u_curr[2:] - 2 * u_curr[1:-1] + u_curr[:-2])
 
-            #Boundary Conditions: u(0,t) = u(L,t) = 0
+            #  Boundary Conditions: u(0,t) = u(L,t) = 0
             u_next[0] = 0
             u_next[-1] = 0
 
